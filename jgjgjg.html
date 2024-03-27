@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .container{
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+ height: 100vh;
+
+        }
+    </style>
+    
+<div class="container" id="mybg">
+    <div class="boxes" onclick="alertnum('3324242424242424')">scscs</div>
+<div class="boxes" onclick="alertnum('')">cscsc</div>
+<div class="boxes" onclick="alertnum('')">sscscs</div>
+<div class="boxes" onclick="alertnum('')">scscs</div>
+<div class="boxes" onclick="alertnum('')">hvhvhvhvhv</div>
+
+
+<button onclick="changebg()">CHNAGE BG</button>
+</div>
+
+
+
+
+
+
+
+<script>
+
+let bgimg = 'https://image.tmdb.org/t/p/w1280'
+let arraypath = '/meyhnvssZOPPjud4F1CjOb4snET.jpg'
+
+function changebg(){
+
+    document.getElementById('mybg').style.background = `url(${bgimg}${arraypath})`
+
+}
+
+
+
+
+    function alertnum(b){
+
+        alert(randomnuber)
+    }
+</script>
+</body>
+</html>

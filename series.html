@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="bg">
+           
+        </div>
+            Homepage
+           </header> 
+        
+           <div class="h">
+            Series Airing Today
+           </div>
+        
+        
+           <div class="next">
+            <button onclick="addnum()"> Next Page</button>
+           </div>
+        <div class="previous">
+         
+          <button onclick="previous()"> Previous Page</button>
+         
+        </div>
+
+        <div class="boxes" id="bx"></div>
+</body>
+
+<script>
+    let mynum = 1;
+    function addnum(){
+  const newnum =   mynum + 1
+  mynum = newnum
+
+  series()
+}
+
+function previous(){
+  const newnum =   mynum - 1
+  mynum = newnum
+  series()
+}
+    var posterPaths = "https://image.tmdb.org/t/p/w370_and_h556_bestv2/";
+    function series(){
+
+        const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOWVlODEyZTgyZmE5NGE2NDY2NjA0NjEwZmVmMDUxOSIsInN1YiI6IjY2MDJkOTIxNjA2MjBhMDE0OTI3NzgwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Mt8oHsLfc5B8RDEHJRc5HpZ-qDlzfDPLIbD7afxgDWo'
+  }
+};
+
+fetch(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&&page=${mynum}`, options)
+  .then(response => response.json())
+  .then(response =>{
+
+    let myresponse = response.results
+
+console.log(myresponse)
+
+
+const map = myresponse.map(function(details){
+return `
+
+  <div class="one" onclick="getid(${details.id})">   <img class="imag" src="${posterPaths}${details.poster_path}" alt="Movie Poster">
+    <div class="desc">
+      <h1>   ${details.name}  </h1>
+    ${details.overview}
+   <h2> Original Country  </h2>  ${details.origin_country}
+   <h3> Original Language  </h2>  ${details.original_language}
+   <h4> Original Name  </h2>  ${details.original_name}
+        <h4> Popularity  </h2>  ${details.popularity}
+   <h5>  Adult Content </h2>  ${details.adult}
+   </div>  
+</div>
+   `
+})
+const details = map.join("");
+const show = document.getElementById('bx');
+
+
+show.innerHTML = details;
+
+    
+  })
+ 
+
+
+
+  .catch(err => console.error(err));
+
+
+
+    }series();
+
+    function getid(id_num){
+const activemovie = localStorage.setItem('activemovie', id_num)
+window.location.href = 'seriesdetails.html'
+}
+</script>
+</html>

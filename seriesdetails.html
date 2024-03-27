@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+</head>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+body,*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    gap: 20px;
+    color: #fff;
+    font-family: Lato;
+font-size: 18px;
+font-weight: 800;
+line-height: 28px;
+text-align: left;
+align-items: center;
+background-color: #000000;
+padding-left: 20px;
+padding-block: 5px;
+color: #F8B319;
+
+}
+.bg
+{
+    background-color: #F9F9F933;
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    color:#F8B319 ;
+}
+
+header img{
+  height: 2vh;
+  width: 1vh;
+  margin-left: 15px;
+  color: #F8B319;
+
+}
+
+    body{
+        font-family: Lato;
+    }
+
+    #bx{
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        
+    }
+
+    .boxes{
+        width: 100%;
+        display: flex;
+        gap: 150px;
+    }
+    .one{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 70px;
+        color: #fff;
+    }
+    
+.a{
+    font-family: Lato;
+font-size: 29px;
+font-weight: 600;
+line-height: 35.09px;
+text-align: left;
+color: #fff;
+
+}
+
+.date{
+    padding-bottom: 14px;
+   font-weight: 500;
+    
+}
+.button{
+    display: flex;
+    padding: 50px;
+    gap: 30px;
+}
+.bone{
+    border-radius: 6px;
+        
+
+}
+
+.bone button{
+   padding: 12px;
+    background-color: transparent;
+    outline: none;
+    width: 17vh;
+    border-radius: 8px;
+    border: 1px solid #F9F9F933;
+    background-color: #F9F9F933;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+.btwo button{
+    padding: 12px;
+    background-color: transparent;
+    outline: none;
+    width: 17vh;
+    border-radius: 8px;
+    background-color: #F8B319;
+    border: none;
+    color: #000000;
+    font-weight: 700; 
+}
+.two{
+   
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 41%;
+    margin-top: 20px;
+    height: 600px;
+  
+   
+}
+
+.seasons{
+    display: flex;
+}
+
+.num1{
+    color: #000000;
+    font-weight: 700;
+    box-shadow: 0px 4px 9px 0px #00000040;
+    background-color: #F8B319;
+    font-family: Lato;
+    border-radius: 0px  px 0px 9px;
+    display: flex   ;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin-left: 216px;
+    margin-top: -1px;
+}
+.star{
+    color: #F8B319;
+    display: flex;
+    gap: 20px;
+}
+
+
+</style>
+<body>
+    <header>
+        <div class="bg">
+            <img src="Left Arrow 4 (1).png" alt="" onclick="back()">
+        </div>
+            Back home
+           </header>
+           
+           <div class="boxes" id="bx">
+            <div class="one" id="show">
+            <div class="a" id="title"></div>
+                   <div class="star" id="star">
+                    
+                   </div>
+                   <div class="date" id="date">
+                    10M+ views
+                   </div>
+                   <div class="seasons" id="seasons"></div>
+                  <div class="im">
+                    <img src="MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@ 1.png" alt="">
+                  </div>
+                   <div class="desc" id="desc">
+               
+                   </div>
+
+                   <div class="button">
+                    <div class="bone"><button>+ Watchlist </button></div>
+                    <div class="btwo"><button>Watch Now</button></div>
+                   </div>
+            </div>
+            <div class="two" id="two">
+    <div class="num1">
+       <div class="bnum">
+        Top Rated
+       </div>
+    </div>
+            </div>
+           </div>
+
+           <script>
+
+
+            function back(){
+                window.location.href = 'series.html'; 
+            }
+           </script>
+
+
+
+
+<script>
+
+
+
+function fetchmovie(){
+    const movie_id =  parseInt(localStorage.getItem('activemovie')) 
+    console.log('movie id is',  movie_id)
+    
+    const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOWVlODEyZTgyZmE5NGE2NDY2NjA0NjEwZmVmMDUxOSIsInN1YiI6IjY2MDJkOTIxNjA2MjBhMDE0OTI3NzgwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Mt8oHsLfc5B8RDEHJRc5HpZ-qDlzfDPLIbD7afxgDWo'
+  }
+};
+
+fetch(`https://api.themoviedb.org/3/tv/${movie_id}?language=en-US`, options)
+  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+    var backgroundPaths = "http://image.tmdb.org/t/p/w1280";
+document.getElementById('bx').style.backgroundImage =  `linear-gradient(rgba(0, 0, 0, 0.442), rgba(0, 0, 0, 0.793)),url(${backgroundPaths}${response.backdrop_path})`
+var posterPaths = "https://image.tmdb.org/t/p/w370_and_h556_bestv2/";
+document.getElementById('two').style.backgroundImage =  `url(${backgroundPaths}${response.poster_path})`
+document.getElementById('title').innerHTML =  response?.name
+ let genre = response.genres
+console.log(genre)
+
+ const map = genre.map(function(details){
+    console.log(details.name)
+  return `<div class="star">
+    ${details.name}
+    
+    </div>`
+   
+
+})
+const show = document.getElementById('star')
+   const show_map = map.join("");
+   show.innerHTML = show_map;
+   document.getElementById('date').innerHTML =  `Episode Run Time : ${response.episode_run_time}`;
+   document.getElementById('desc').innerHTML = response.overview;
+   let name = response.seasons
+console.log(name)
+
+ const display = name.map(function(details){
+    console.log(details.name)
+    console.log(details.overview)
+  return `<div class="seasons">
+   Seasons: ${details.name}
+     </div>`
+   
+  })
+  const a = document.getElementById('seasons')
+  const b = display.join("")
+  a.innerHTML =b;
+
+})
+}
+fetchmovie()
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header>
+<div class="bg">
+   
+</div>
+    Homepage
+   </header> 
+
+   <div class="h">
+    Top Rated Movies
+   </div>
+
+   <button onclick="redirect()">For Series</button>
+
+
+   <div class="next">
+    <button onclick="addnum()"> Next Page</button>
+   </div>
+<div class="previous">
+ 
+  <button onclick="previous()"> Previous Page</button>
+ 
+</div>
+
+   <div class="boxes" id="box">
+    <!-- <div class="one">
+        <div class="bnum">
+           <div class="num">
+            4.8
+           </div>
+        </div>
+    <div class="">
+   <div class="a">
+    Avatar
+   </div>
+   <div class="star">
+    <img src="Star.png" alt="Star">
+    <img src="Star.png" alt="Star">
+    <img src="Star.png" alt="Star">
+    <img src="Star.png" alt="Star">
+    <img src="Star 4.png" alt="">
+   </div>
+   <div class="date">
+    10 0ct 2021
+   </div>
+   <div class="desc">
+    Avatar release is expected to draw large
+crowds due to popularity | NewsBytes
+   </div>
+    </div>
+    </div>
+   
+    <div class="two">
+        <div class="bnum1">
+            <div class="num1">
+             4.2
+            </div>
+         </div>
+         <div class="op">
+            <div class="a">
+             Venom 2
+            </div>
+            <div class="star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star 4.png" alt="">
+            </div>
+            <div class="date">
+             10 0ct 2021
+            </div>
+            <div class="desc">
+                Let There Be Carnage' release delayed to September | NewsBytes
+            </div>
+             </div>
+    </div>
+    <div class="three">
+        <div class="bnum1">
+            <div class="num1">
+             4.5
+            </div>
+         </div>
+         <div class="op">
+            <div class="a">
+             BloodShot
+            </div>
+            <div class="star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star 4.png" alt="">
+            </div>
+            <div class="date">
+             10 0ct 2021
+            </div>
+            <div class="desc">
+                Ray Garrison, a soldier recently killed in action, is brought back to life as the superhero ...
+            </div>
+             </div>
+    </div>
+    <div class="four">
+        <div class="bnum1">
+            <div class="num1">
+             4.7
+            </div>
+         </div>
+         <div class="op">
+            <div class="a">
+             The City Of Gold
+            </div>
+            <div class="star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star 4.png" alt="">
+            </div>
+            <div class="date">
+             10 0ct 2021
+            </div>
+            <div class="desc">
+                English Movies: Watch English Movies 2021, Latest Hollywood Movies Online | English Films
+            </div>
+             </div>
+    </div>
+    <div class="three">
+        <div class="bnum1">
+            <div class="num1">
+             4.5
+            </div>
+         </div>
+         <div class="op">
+            <div class="a">
+             BloodShot
+            </div>
+            <div class="star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star 4.png" alt="">
+            </div>
+            <div class="date">
+             10 0ct 2021
+            </div>
+            <div class="desc">
+                Ray Garrison, a soldier recently killed in action, is brought back to life as the superhero ...
+            </div>
+             </div>
+    </div>
+    <div class="four">
+        <div class="bnum1">
+            <div class="num1">
+             4.7
+            </div>
+         </div>
+         <div class="op">
+            <div class="a">
+             The City Of Gold
+            </div>
+            <div class="star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star.png" alt="Star">
+             <img src="Star 4.png" alt="">
+            </div>
+            <div class="date">
+             10 0ct 2021
+            </div>
+            <div class="desc">
+                English Movies: Watch English Movies 2021, Latest Hollywood Movies Online | English Films
+            </div>
+             </div>
+             
+    </div> -->
+   </div>
+   <div id="bx" >
+
+   </div>
+
+<script>
+
+
+var posterPaths = "https://image.tmdb.org/t/p/w370_and_h556_bestv2/";
+var backgroundPaths = "http://image.tmdb.org/t/p/w1280";
+
+
+
+let mynum = 1
+
+
+function addnum(){
+  const newnum =   mynum + 1
+  mynum = newnum
+
+  moviedata()
+}
+
+function previous(){
+  const newnum =   mynum - 1
+  mynum = newnum
+  moviedata()
+}
+
+function redirect(){
+  window.location.href = 'series.html'
+}
+function moviedata(){
+    const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOWVlODEyZTgyZmE5NGE2NDY2NjA0NjEwZmVmMDUxOSIsInN1YiI6IjY2MDJkOTIxNjA2MjBhMDE0OTI3NzgwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Mt8oHsLfc5B8RDEHJRc5HpZ-qDlzfDPLIbD7afxgDWo'
+  }
+};
+
+fetch(`https://api.themoviedb.org/3/discover/movie?&page=${mynum}`, options)
+  .then(response => response.json())
+  .then(response =>{
+
+
+    let myresponse = response.results
+
+    console.log(myresponse)
+  
+    
+const map = myresponse.map(function(details){
+    return `
+
+      <div class="one" onclick="getid(${details.id})">   <img class="imag" src="${posterPaths}${details.poster_path}" alt="Movie Poster">
+        <div class="desc">
+          <h1>   ${details.original_title}  </h1>
+        ${details.overview}
+       <h2> Release date  </h2>  ${details.release_date}
+       <h3> Vote Average  </h2>  ${details.vote_average}
+       <h4> Vote Count  </h2>  ${details.vote_count}
+       <h5>  Adult Content </h2>  ${details.adult}
+       </div>
+    </div>
+       `
+})
+   const details = map.join("");
+  const show = document.getElementById('box');
+
+
+  show.innerHTML = details;
+
+   
+
+  }
+)
+  .catch(err => console.error(err));
+
+
+} moviedata();
+  
+function getid(id){
+const activemovie = localStorage.setItem('activemovie', id)
+window.location.href ='movie.html'
+}
+
+</script>  
+</body>
+</html>
